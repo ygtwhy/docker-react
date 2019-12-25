@@ -9,6 +9,7 @@ script:
   - docker run -e CI=true ygtwhy/docker-react npm run test
 
 deploy:
+  edge: true
   provier: elasticbeanstalk
   region: "us-east-2"
   app: "docker"
@@ -17,3 +18,5 @@ deploy:
   bucket_path: "docker"
   on:
     branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY  
